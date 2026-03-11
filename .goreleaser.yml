@@ -4,8 +4,7 @@ project_name: terraform-provider-buttondown
 
 before:
   hooks:
-    - cmd: go mod tidy
-      dir: terraform-provider-buttondown
+    - bash -c "cd terraform-provider-buttondown && go mod tidy"
 
 builds:
   - dir: terraform-provider-buttondown
