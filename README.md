@@ -52,6 +52,51 @@ resource "buttondown_email" "weekly_update" {
 |-------------|-------------|
 | `buttondown_account` | Current account info |
 
+## Pulumi Provider
+
+Use any Buttondown resource from TypeScript, Python, Go, or C# via Pulumi's Terraform provider bridge.
+
+### Quick Start
+
+```bash
+# Add the Buttondown provider to your Pulumi project
+pulumi package add terraform-provider edmondop/buttondown
+```
+
+### TypeScript Example
+
+```typescript
+import * as buttondown from "@pulumi/buttondown";
+
+const tag = new buttondown.Tag("engineering", {
+    name: "Engineering",
+    color: "#0066cc",
+});
+
+const email = new buttondown.Email("weekly-update", {
+    subject: "Weekly Update",
+    body: "# This Week\n\nHere's what happened...",
+});
+```
+
+### Python Example
+
+```python
+import pulumi_buttondown as buttondown
+
+tag = buttondown.Tag("engineering",
+    name="Engineering",
+    color="#0066cc",
+)
+
+email = buttondown.Email("weekly-update",
+    subject="Weekly Update",
+    body="# This Week\n\nHere's what happened...",
+)
+```
+
+All 11 Terraform resources and the account data source are available in every Pulumi language.
+
 ## Development
 
 ```bash
